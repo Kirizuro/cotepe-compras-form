@@ -7,8 +7,7 @@
       "attrs": {
         "placeholder": "Nome da Empresa"
       }
-    },
-    "validation": "required"
+    }
   },
   {
     "type": "text",
@@ -18,8 +17,7 @@
       "attrs": {
         "placeholder": "Onde sera realizado o serviço?"
       }
-    },
-    "validation": "required"
+    }
   },
   {
     "type": "date",
@@ -42,7 +40,7 @@
     }
   },
   {
-    "type": "textarea",
+    "type": "select",
     "label": "Nome dos Funcionarios",
     "name": "funcName",
     "options": {
