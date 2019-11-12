@@ -7,7 +7,8 @@
       "attrs": {
         "placeholder": "Nome da Empresa"
       }
-    }
+    },
+    "validation": "required"
   },
   {
     "type": "text",
@@ -17,38 +18,28 @@
       "attrs": {
         "placeholder": "Onde sera realizado o serviço?"
       }
-    }
+    },
+    "validation": "required"
   },
   {
     "type": "date",
-    "Label": "Data de Inicio",
+    "label": "Data de Ida e Vinda",
     "name": "dataIda",
     "options": {
       "attrs": {
-        "placeholder": "10 out 2015"
-      }
-    }
-  },
-  {
-    "type": "date",
-    "Label": "Data de Termino",
-    "name": "dataVolta",
-    "options": {
-      "attrs": {
-        "placeholder": "Data de Termino"
+        "placeholder": ""
       }
     }
   },
   {
     "type": "select",
-    "label": "Nome dos Funcionarios",
+    "label": "Selecione os profissionais",
     "name": "funcName",
     "options": {
       "attrs": {
         "placeholder": "Nome dos Funionarios"
       }
-    },
-    "validation": "required"
+    }
   },
   {
     "type": "text",

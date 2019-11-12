@@ -2,10 +2,11 @@
   <div>
     <v-select
       multiple
-      autofocus
       label="Escolha os funcionarios"
       type="select"
       item-text="name"
+      chips
+      rounded
       :items="worker"
       :value="worker.name"
       :id="worker.id"
@@ -28,6 +29,7 @@ export default {
     }
   },
   props: {
+    //worker: {},
     value: {
       required: true,
       default: () => []

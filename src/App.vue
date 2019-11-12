@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <div class="logo">
       <h1>Inicio do cadastramento da PV</h1>
     </div>
     <form-config-provider />
-  </div>
+  </v-app>
 </template>
 
 <script>
