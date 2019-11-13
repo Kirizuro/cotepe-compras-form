@@ -3,11 +3,10 @@
     <label>
       <v-date-picker
         v-model="selectedValues"
-        v-checked:[selectedValues]="selectedValues"
+        v-checked:[options]="selectedValues"
         no-title
         full-width
         scrollable
-        width="10"
         :value="selectedValues"
         range
       ></v-date-picker>
@@ -20,9 +19,12 @@ export default {
   data() {
     return {
       selectedValues: []
-    }
+    };
   },
   props: {
+    options: {
+      required: true
+    },
     value: {
       required: false,
       default: () => []
@@ -30,22 +32,24 @@ export default {
   },
   watch: {
     selectedValues(newVal) {
-      this.$emit("v-date-picker", newVal)
+      this.$emit('input', newVal);
     }
   },
   created() {
-    if (this.value.length > 0) this.selectedValues = this.value
+    if (this.value.length > 0) this.selectedValues = this.value;
   },
   directives: {
     checked(el, binding) {
-      return binding.value.includes(binding.arg) ? (el.checked = true) : (el.checked = false)
+      return binding.value.includes(binding.arg)
+        ? (el.checked = true)
+        : (el.checked = false);
     }
   },
 
   computed: {
     dateRangeText() {
-      return this.selectedValues.join(" ~ ")
+      return this.selectedValues.join(' ~ ');
     }
   }
-}
+};
 </script>

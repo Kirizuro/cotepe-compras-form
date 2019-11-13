@@ -4,12 +4,12 @@
 
 <script>
 export default {
-  name: "FormTextarea",
+  name: 'FormTextarea',
   props: {
     value: {
-      default: "",
+      default: '',
       type: String
     }
   }
-}
+};
 </script>

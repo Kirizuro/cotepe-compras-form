@@ -1,53 +1,50 @@
 <template>
   <div>
-    <v-select
-      multiple
-      label="Escolha os funcionarios"
-      type="select"
+    <v-autocomplete
       item-text="name"
+      label="Escolha os funcionarios"
+      multiple
       chips
-      rounded
-      :items="worker"
-      :value="worker.name"
-      :id="worker.id"
+      deletable-chips
+      :items="options"
+      :value="options"
+      :id="options.id"
       v-model="selectedValues"
-      v-checked:[worker]="selectedValues"
-    ></v-select>
+    ></v-autocomplete>
   </div>
 </template>
 
 <script>
-import Workers from "../../../config/workersConfig"
-
 export default {
-  name: "Select",
-
-  data() {
-    return {
-      selectedValues: [],
-      worker: Workers
-    }
-  },
   props: {
-    //worker: {},
+    options: {
+      required: true
+    },
     value: {
-      required: true,
+      required: false,
       default: () => []
     }
   },
   watch: {
     selectedValues(newVal) {
-      this.$emit("v-select", newVal)
+      this.$emit('input', newVal);
     }
   },
 
   created() {
-    if (this.value.length > 0) this.selectedValues = this.value
+    if (this.value.length > 0) this.selectedValues = this.value;
   },
   directives: {
     checked(el, binding) {
-      return binding.value.includes(binding.arg) ? (el.checked = true) : (el.checked = false)
+      return binding.value.includes(binding.arg)
+        ? (el.checked = true)
+        : (el.checked = false);
     }
+  },
+  data() {
+    return {
+      selectedValues: []
+    };
   }
-}
+};
 </script>

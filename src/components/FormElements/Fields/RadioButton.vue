@@ -13,6 +13,6 @@
 </template>
 <script>
 export default {
-  props: ["options", "value"]
-}
+  props: ['options', 'value']
+};
 </script>

@@ -4,7 +4,7 @@
     <template v-for="(field, key) in formFields">
       <field-group :field-id="key" :key="`${_uid}-${field.name}`">
         <div class="field-area">
-          <field-label :for="`${_uid}-${field.name}`"> {{ key + 1 }}. {{ field.label }} </field-label>
+          <field-label :for="`${_uid}-${field.name}`">{{ key + 1 }}. {{ field.label }}</field-label>
           <Component
             v-model="formData[field.name]"
             :is="field.component"
@@ -31,20 +31,20 @@
 </template>
 
 <script>
-import FieldGroup from "./FormElements/FieldGroup.vue"
-import FieldError from "./FormElements/FieldError.vue"
-import FieldLabel from "./FormElements/FieldLabel.vue"
+import FieldGroup from './FormElements/FieldGroup.vue';
+import FieldError from './FormElements/FieldError.vue';
+import FieldLabel from './FormElements/FieldLabel.vue';
 
-import FormNav from "./FormElements/FormNav.vue"
-import FormResult from "./FormElements/FormResult.vue"
+import FormNav from './FormElements/FormNav.vue';
+import FormResult from './FormElements/FormResult.vue';
 
-import formMixin from "../mixins/formMixin"
-import { mapMutations } from "vuex"
+import formMixin from '../mixins/formMixin';
+import { mapMutations } from 'vuex';
 
 export default {
-  name: "form-template",
+  name: 'form-template',
   mixins: [formMixin],
-  props: ["formFields"],
+  props: ['formFields'],
   components: {
     FieldGroup,
     FieldError,
@@ -55,12 +55,12 @@ export default {
   provide() {
     return {
       formState: this.formState
-    }
+    };
   },
   methods: {
     ...mapMutations({
-      updateField: "lead/updateField"
+      updateField: 'lead/updateField'
     })
   }
-}
+};
 </script>

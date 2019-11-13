@@ -8,16 +8,16 @@
 </template>
 
 <script>
-import FormConfigProvider from "./components/FormConfigProvider.vue"
+import FormConfigProvider from './components/FormConfigProvider.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     FormConfigProvider
   }
-}
+};
 </script>
 <style>
-@import "./assets/styles/main.css";
-@import url("https://cdn.jsdelivr.net/npm/animate.css@3.5.1");
+@import './assets/styles/main.css';
+@import url('https://cdn.jsdelivr.net/npm/animate.css@3.5.1');
 </style>

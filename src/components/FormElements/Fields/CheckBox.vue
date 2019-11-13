@@ -27,22 +27,24 @@ export default {
   data() {
     return {
       selectedValues: []
-    }
+    };
   },
   watch: {
     selectedValues(newVal) {
-      this.$emit("input", newVal)
+      this.$emit('input', newVal);
     }
   },
   created() {
-    if (this.value.length > 0) this.selectedValues = this.value
+    if (this.value.length > 0) this.selectedValues = this.value;
   },
   directives: {
     checked(el, binding) {
-      return binding.value.includes(binding.arg) ? (el.checked = true) : (el.checked = false)
+      return binding.value.includes(binding.arg)
+        ? (el.checked = true)
+        : (el.checked = false);
     }
   }
-}
+};
 </script>
 <style>
 label {
