@@ -5,31 +5,25 @@ Nova forma de preenchimento para a criação de uma PV para Cotepe Engenharia El
 ## Project setup
 
 ```bash
-npm install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-npm run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 
 ```
-npm run build
-```
-
-### Run your tests
-
-```
-npm run test
+yarn build
 ```
 
 ### Lints and fixes files
 
 ```
-npm run lint
+yarn lint
 ```
 
 ### Customize configuration
