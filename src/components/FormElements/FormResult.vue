@@ -2,12 +2,19 @@
   <v-container>
     <type-based-transition :transitionType="'fadeUpDown'">
       <div v-if="isComplete" id="complete" class="form-complete">
-        <h1>Obrigado por preencher</h1>
+        <h1>As informações estão corretas?</h1>
+        <v-layout>
+          <v-flex wrap text-center>
+            <v-btn class="btn" outlined color="primary">Estão</v-btn>
+            <v-btn class="btn" outlined color="secondary">Não estão</v-btn>
+          </v-flex>
+        </v-layout>
         <v-row>
           <v-col
-            lg="4"
+            xs="12"
             sm="12"
             md="6"
+            lg="4"
             v-for="(item, key, index) in $store.state.lead.formData"
             :key="key"
             shaped
@@ -20,15 +27,6 @@
             </v-card>
           </v-col>
         </v-row>
-        <!--
-        <h1>As informações estão corretas?</h1>
-        <v-row>
-          <v-col align-self="center" cols="12" lg="12">
-            <v-btn color="primary">Estão</v-btn>
-            <v-btn color="secondary">Não estão</v-btn>
-          </v-col>
-        </v-row>
-        -->
       </div>
     </type-based-transition>
   </v-container>
@@ -49,3 +47,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.btn {
+  margin: 5px;
+}
+</style>
