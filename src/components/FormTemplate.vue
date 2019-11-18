@@ -4,7 +4,9 @@
     <template v-for="(field, key) in formFields">
       <field-group :field-id="key" :key="`${_uid}-${field.name}`">
         <div class="field-area">
-          <field-label :for="`${_uid}-${field.name}`">{{ key + 1 }}. {{ field.label }}</field-label>
+          <field-label :for="`${_uid}-${field.name}`"
+            >{{ key + 1 }}. {{ field.label }}</field-label
+          >
           <Component
             v-model="formData[field.name]"
             :is="field.component"
@@ -12,7 +14,9 @@
             :id="`${_uid}-${field.name}`"
             :name="`${field.name}`"
             :type="field.type"
-            @input="updateField({ key: field.name, value: formData[field.name] })"
+            @input="
+              updateField({ key: field.name, value: formData[field.name] })
+            "
             v-validate="field.validation"
             :data-vv-as="field.label"
             :options="!!field.options.choices ? field.options.choices : false"
@@ -23,7 +27,11 @@
     </template>
 
     <!-- Next and Back Nav -->
-    <form-nav @back="back" @next="next" v-colorswatch:bg="formState.activeField" />
+    <form-nav
+      @back="back"
+      @next="next"
+      v-colorswatch:bg="formState.activeField"
+    />
 
     <!-- Form Results -->
     <form-result />

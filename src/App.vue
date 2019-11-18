@@ -1,20 +1,12 @@
 <template>
   <v-app id="app">
-    <div class="logo">
-      <h1>Inicio do cadastramento da PV</h1>
-    </div>
-    <form-config-provider />
+    <router-view />
   </v-app>
 </template>
 
 <script>
-import FormConfigProvider from './components/FormConfigProvider.vue';
-
 export default {
-  name: 'app',
-  components: {
-    FormConfigProvider
-  }
+  name: 'app'
 };
 </script>
 <style>
