@@ -75,10 +75,10 @@ textarea {
 }
 .field-area {
   padding: 3em;
-  background-color: #d6f1ef;
+  background-color: #6598ffa6;
   box-shadow: 1px 1px 1px 1px rgba(106, 145, 146, 0.4);
   border-radius: 10px;
-  margin: 5% 10%;
+  margin: 3% 10%;
 }
 .form-error-message {
   font-size: smaller;
