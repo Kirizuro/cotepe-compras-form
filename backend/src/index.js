@@ -1,10 +1,7 @@
 const express = require('express');
 const sql = require('mssql');
 
-const config = require('./server');
-
-const conn = require('./server');
-const quere = 'select * from dbo.funcionarios';
+const { config, conn } = require('./server');
 
 const app = express();
 
@@ -21,13 +18,7 @@ const getQuery = async query => {
 const router = express.Router();
 router.get('/', (req, res) => {
   res.json({
-    message: getQuery('vendas')
-  });
-});
-
-router.post('/', (req, res) => {
-  res.json({
-    message: getQuery('vendas')
+    message: getQuery('funcionarios')
   });
 });
 
