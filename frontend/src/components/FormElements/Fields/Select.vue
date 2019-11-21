@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import api from '../../FormTemplate';
+
 export default {
   props: {
     options: {
@@ -44,7 +46,26 @@ export default {
   data() {
     return {
       selectedValues: []
+      /*results: [],
+      result: results.map(el => {
+        return el.id;
+      })*/
     };
+  },
+
+  mounted() {
+    this.getApi();
+  },
+
+  methods: {
+    async getApi() {
+      try {
+        const response = await api.get(`/funcionarios`);
+        this.result = response.data;
+      } catch (error) {
+        return error;
+      }
+    }
   }
 };
 </script>

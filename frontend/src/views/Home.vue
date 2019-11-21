@@ -1,11 +1,11 @@
 <template>
-  <v-container>
-    <v-row class="logo">
+  <div>
+    <nav class="logo">
       <p>Inicio do cadastramento da PV</p>
       <img src="../assets/img/logo cotepe.svg" alt="" />
-    </v-row>
+    </nav>
     <form-config-provider />
-  </v-container>
+  </div>
 </template>
 
 <script>

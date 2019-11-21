@@ -15,18 +15,18 @@ body {
 }
 
 .logo {
-  position: relative;
-  left: 0;
-  right: 0;
+  display: flex;
 }
 .logo p {
+  align-self: center;
   font-weight: 500;
   font-size: 1.7em;
+  margin: 0 0 0 20px !important;
 }
 
 .logo img {
-  margin-left: auto;
   width: 15vw;
+  margin: 10px 20px 0 auto;
 }
 
 /* HTML Tags */

@@ -1,5 +1,10 @@
-const express = require("express");
+const express = require('express');
 
-const routes = express.Routes();
+const routes = express.Router();
 
-routes.get("/");
+const Querys = require('./controllers/Querys');
+
+routes.get('/vendas', Querys.vendas);
+routes.get('/funcionarios', Querys.funcionarios);
+
+module.exports = routes;

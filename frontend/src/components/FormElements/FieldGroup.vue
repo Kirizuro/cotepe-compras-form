@@ -6,22 +6,22 @@
   </data-driven-transition>
 </template>
 <script>
-import DataDrivenTransition from "../Transitions/DataDrivenTransition.vue"
+import DataDrivenTransition from '../Transitions/DataDrivenTransition.vue';
 
 export default {
-  name: "field-group",
-  props: ["fieldId"],
-  inject: ["formState"],
+  name: 'field-group',
+  props: ['fieldId'],
+  inject: ['formState'],
   components: {
     DataDrivenTransition
   },
   computed: {
     active() {
-      return this.formState.activeField === this.fieldId
+      return this.formState.activeField === this.fieldId;
     },
     isNext() {
-      return this.formState.isNext
+      return this.formState.isNext;
     }
   }
-}
+};
 </script>

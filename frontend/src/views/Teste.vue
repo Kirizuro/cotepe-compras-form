@@ -3,8 +3,9 @@
     <v-col lg="12">
       <v-carousel>
         <v-carousel-item>
-          <p>teste</p>
-          {{ test }}
+          <h1>
+            {{ result }}
+          </h1>
         </v-carousel-item>
       </v-carousel>
     </v-col>
@@ -12,7 +13,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import api from '../services/Api';
 
 export default {
@@ -20,35 +20,23 @@ export default {
 
   data() {
     return {
-      test: ''
+      result: []
     };
   },
 
   methods: {
     async getApi() {
       try {
-        const response = await axios.get(api);
-        this.test = response;
-        // eslint-disable-next-line
-        console.log(response);
+        const response = await api.get('/funcionarios');
+        return (this.result = response.result);
       } catch (error) {
-        // eslint-disable-next-line
-        console.log(error);
+        return error;
       }
     }
   },
 
-  mounted() {},
-  async getApi() {
-    try {
-      const response = await axios.get(api);
-      this.test = response;
-      // eslint-disable-next-line
-      console.log(response);
-    } catch (error) {
-      // eslint-disable-next-line
-      console.log(error);
-    }
+  mounted() {
+    this.getApi();
   }
 };
 </script>
