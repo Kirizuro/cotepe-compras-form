@@ -1,22 +1,21 @@
 <template>
   <div>
     <v-autocomplete
-      item-text="name"
+      item-text="nome"
       label="Escolha os funcionarios"
       multiple
       chips
       deletable-chips
       :items="options"
       :value="options"
-      :id="options.id"
       v-model="selectedValues"
+      v-checked:[option]="selectedValues"
     ></v-autocomplete>
   </div>
 </template>
 
 <script>
-import api from '../../FormTemplate';
-
+import api from '../../../services/Api';
 export default {
   props: {
     options: {
@@ -45,27 +44,22 @@ export default {
   },
   data() {
     return {
-      selectedValues: []
-      /*results: [],
-      result: results.map(el => {
-        return el.id;
-      })*/
+      selectedValues: [],
+      results: []
     };
   },
-
-  mounted() {
-    this.getApi();
-  },
-
   methods: {
     async getApi() {
       try {
-        const response = await api.get(`/funcionarios`);
-        this.result = response.data;
+        const response = await api.get('/funcionarios');
+        this.result = response.data.result.recordset;
       } catch (error) {
         return error;
       }
     }
+  },
+  mounted() {
+    this.getApi();
   }
 };
 </script>

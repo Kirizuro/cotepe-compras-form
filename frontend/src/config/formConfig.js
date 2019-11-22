@@ -1,4 +1,4 @@
-import workersConfig from './workersConfig';
+//import { getApi } from '../services/Api';
 
 const formConfig = [
   {
@@ -6,7 +6,7 @@ const formConfig = [
     label: 'Quem esta criando essa PV?',
     name: 'quem',
     options: {
-      choices: ['Felipe', 'Ralph', 'Wanderlei']
+      choices: ['Ralph', 'Felipe', 'Wanderlei'] //getApi('vendas')
     },
     validation: 'required'
   },
@@ -48,7 +48,7 @@ const formConfig = [
     label: 'Selecione os profissionais',
     name: 'funcionarioNome',
     options: {
-      choices: workersConfig
+      choices: ['teste', 'tes', 'te']
     },
     validation: 'required'
   },

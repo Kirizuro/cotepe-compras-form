@@ -1,19 +1,17 @@
 <template>
   <v-row>
-    <v-col lg="12">
-      <v-carousel>
-        <v-carousel-item>
-          <h1>
-            {{ result }}
-          </h1>
-        </v-carousel-item>
-      </v-carousel>
+    <v-col align-self="center" lg="12">
+      <h1 v-for="teste in result" :key="teste.id">
+        <div>
+          {{ teste.nome }}
+        </div>
+      </h1>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import api from '../services/Api';
+import { api } from '../services/Api';
 
 export default {
   name: 'teste',
@@ -28,7 +26,7 @@ export default {
     async getApi() {
       try {
         const response = await api.get('/funcionarios');
-        return (this.result = response.result);
+        this.result = response.data.result.recordset;
       } catch (error) {
         return error;
       }

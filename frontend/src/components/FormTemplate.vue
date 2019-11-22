@@ -87,10 +87,9 @@ export default {
     async getApi(query) {
       try {
         const response = await api.get(`/${query}`);
-        this.result = response.data;
+        this.result = response.data.result.recordset;
       } catch (error) {
-        // eslint-disable-next-line
-        console.log(error);
+        return error;
       }
     }
   }
