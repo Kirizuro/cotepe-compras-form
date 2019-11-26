@@ -1,12 +1,10 @@
-//import { getApi } from '../services/Api';
-
 const formConfig = [
   {
     type: 'radio',
     label: 'Quem esta criando essa PV?',
     name: 'quem',
     options: {
-      choices: ['Ralph', 'Felipe', 'Wanderlei'] //getApi('vendas')
+      choices: ['teste', 'te']
     },
     validation: 'required'
   },
@@ -48,7 +46,7 @@ const formConfig = [
     label: 'Selecione os profissionais',
     name: 'funcionarioNome',
     options: {
-      choices: ['teste', 'tes', 'te']
+      choices: ''
     },
     validation: 'required'
   },

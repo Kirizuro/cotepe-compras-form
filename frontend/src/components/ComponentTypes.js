@@ -1,10 +1,10 @@
-import FormTemplate from "./FormTemplate.vue"
-import InputBox from "./FormElements/Fields/InputBox.vue"
-import TextArea from "./FormElements/Fields/TextArea.vue"
-import RadioButton from "./FormElements/Fields/RadioButton.vue"
-import CheckBox from "./FormElements/Fields/CheckBox.vue"
-import Data from "./FormElements/Fields/Date.vue"
-import Select from "./FormElements/Fields/Select.vue"
+import FormTemplate from './FormTemplate.vue';
+import InputBox from './FormElements/Fields/InputBox.vue';
+import TextArea from './FormElements/Fields/TextArea.vue';
+import RadioButton from './FormElements/Fields/RadioButton.vue';
+import CheckBox from './FormElements/Fields/CheckBox.vue';
+import Data from './FormElements/Fields/Date.vue';
+import Select from './FormElements/Fields/Select.vue';
 
 const COMPONENT_MAP = {
   formTemplate: FormTemplate,
@@ -14,8 +14,8 @@ const COMPONENT_MAP = {
   check: CheckBox,
   date: Data,
   select: Select
-}
+};
 
 export function getComponent(type) {
-  return COMPONENT_MAP[type]
+  return COMPONENT_MAP[type];
 }

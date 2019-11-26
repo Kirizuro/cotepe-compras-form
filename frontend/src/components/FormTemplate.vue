@@ -22,7 +22,7 @@
                 v-validate="field.validation"
                 :data-vv-as="field.label"
                 :options="
-                  !!field.options.choices ? field.options.choices : false
+                  !!field.options.choices ? field.options.choices : result
                 "
               />
             </div>
@@ -55,7 +55,6 @@ import FormResult from './FormElements/FormResult.vue';
 import formMixin from '../mixins/formMixin';
 import { mapMutations } from 'vuex';
 
-import api from '../services/Api';
 export default {
   name: 'form-template',
   mixins: [formMixin],
@@ -72,26 +71,15 @@ export default {
       formState: this.formState
     };
   },
-  watch: {
-    quem() {
-      this.getApi('vendas');
-    },
-    funcionarioNome() {
-      this.getApi('funcionarios');
-    }
-  },
   methods: {
     ...mapMutations({
       updateField: 'lead/updateField'
-    }),
-    async getApi(query) {
-      try {
-        const response = await api.get(`/${query}`);
-        this.result = response.data.result.recordset;
-      } catch (error) {
-        return error;
-      }
-    }
+    })
+  },
+  data() {
+    return {
+      result: []
+    };
   }
 };
 </script>

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import Home from './views/Home.vue';
-import Teste from './views/Teste.vue';
+import Dashboard from './views/Dashboard.vue';
 
 Vue.use(VueRouter);
 
@@ -13,13 +13,18 @@ const routes = [
     component: Home
   },
   {
-    path: '/teste',
-    name: 'teste',
-    component: Teste
+    path: '/Admin',
+    name: 'admin',
+    component: Dashboard
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 

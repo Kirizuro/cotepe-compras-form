@@ -6,16 +6,16 @@
       multiple
       chips
       deletable-chips
-      :items="options"
-      :value="options"
+      :items="result"
+      :value="result"
       v-model="selectedValues"
-      v-checked:[option]="selectedValues"
+      v-checked:[result]="selectedValues"
     ></v-autocomplete>
   </div>
 </template>
 
 <script>
-import api from '../../../services/Api';
+import { api } from '../../../services/Api';
 export default {
   props: {
     options: {
@@ -45,20 +45,20 @@ export default {
   data() {
     return {
       selectedValues: [],
-      results: []
+      result: []
     };
   },
   methods: {
     async getApi() {
       try {
         const response = await api.get('/funcionarios');
-        this.result = response.data.result.recordset;
+        this.result = await response.data.result.recordset;
       } catch (error) {
         return error;
       }
     }
   },
-  mounted() {
+  beforeMount() {
     this.getApi();
   }
 };
