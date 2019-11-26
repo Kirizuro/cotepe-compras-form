@@ -1,18 +1,19 @@
 <template>
   <type-based-transition :transitionType="'fadeUpDown'">
     <div v-if="isComplete" id="complete" class="form-complete">
+      <!-- Futura implementação da etapa final da aplicação
       <h1>As informações estão corretas?</h1>
       <v-layout>
         <v-flex wrap text-center>
           <router-link to="/teste">
             <v-btn class="btn" outlined color="primary">Estão</v-btn>
           </router-link>
-
           <v-btn class="btn" @click="$emit('back')" outlined color="secondary">
             Não estão
           </v-btn>
         </v-flex>
       </v-layout>
+      -->
       <v-row>
         <v-col
           xs="12"

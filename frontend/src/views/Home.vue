@@ -9,9 +9,11 @@
       <img src="../assets/img/logo cotepe.svg" alt="" />
     </nav>
     <form-config-provider />
-    <div v-show="show" @keydown.space="adminShow">
+    <!-- Action to future dashboard access
+    <div v-show="this.show" @keydown.enter="adminShow">
       <router-link to="admin"><v-btn color="primary">teste</v-btn></router-link>
     </div>
+    -->
   </div>
 </template>
 
@@ -25,14 +27,14 @@ export default {
   },
   data() {
     return {
-      date: new Date().getFullYear(),
-      show: false
+      date: new Date().getFullYear()
+      //show: false
     };
   },
   methods: {
-    adminShow() {
-      this.show = true;
-    }
+    //adminShow() {
+    //this.show = true;
+    //}
   }
 };
 </script>

@@ -4,7 +4,7 @@ const formConfig = [
     label: 'Quem esta criando essa PV?',
     name: 'quem',
     options: {
-      choices: ['teste', 'te']
+      choices: false
     },
     validation: 'required'
   },
