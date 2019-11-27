@@ -7,8 +7,7 @@ const mutations = {
 };
 
 const state = {
-  formData: {},
-  formFill: {}
+  formData: {}
 };
 
 formConfig.forEach(field => {

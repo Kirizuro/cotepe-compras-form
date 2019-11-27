@@ -24,6 +24,11 @@ export default {
     value: {
       required: false,
       default: () => []
+    },
+    para: {
+      type: String,
+      default: 'funcionarios',
+      required: false
     }
   },
   watch: {
@@ -49,9 +54,9 @@ export default {
     };
   },
   methods: {
-    async getApi() {
+    async getApi(search) {
       try {
-        const response = await api.get('/funcionarios');
+        const response = await api.get(`/${search}`);
         this.result = await response.data.result.recordset;
       } catch (error) {
         return error;
@@ -59,7 +64,7 @@ export default {
     }
   },
   beforeMount() {
-    this.getApi();
+    this.getApi(this.para);
   }
 };
 </script>

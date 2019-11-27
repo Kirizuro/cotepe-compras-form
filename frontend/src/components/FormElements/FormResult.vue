@@ -1,7 +1,6 @@
 <template>
   <type-based-transition :transitionType="'fadeUpDown'">
     <div v-if="isComplete" id="complete" class="form-complete">
-      <!-- Futura implementação da etapa final da aplicação
       <h1>As informações estão corretas?</h1>
       <v-layout>
         <v-flex wrap text-center>
@@ -13,7 +12,6 @@
           </v-btn>
         </v-flex>
       </v-layout>
-      -->
       <v-row>
         <v-col
           xs="12"
@@ -48,7 +46,8 @@ export default {
     isComplete() {
       return this.formState.isComplete;
     }
-  }
+  },
+  methods: {}
 };
 </script>
 
