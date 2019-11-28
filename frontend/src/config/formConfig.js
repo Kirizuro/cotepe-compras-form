@@ -118,7 +118,7 @@ const formConfig = [
     name: 'funcaoTerc',
     options: {
       attrs: {
-        placeholder: 'Função do serviço terceirizado'
+        placeholder: '(Opcional)'
       }
     }
   },

@@ -5,7 +5,9 @@
       <v-layout>
         <v-flex wrap text-center>
           <router-link to="/teste">
-            <v-btn class="btn" outlined color="primary">Estão</v-btn>
+            <v-btn class="btn" @click="insert" outlined color="primary"
+              >Estão</v-btn
+            >
           </router-link>
           <v-btn class="btn" @click="$emit('back')" outlined color="secondary">
             Não estão
@@ -35,6 +37,7 @@
 </template>
 <script>
 import TypeBasedTransition from '../Transitions/TypeBasedTransition.vue';
+import { api } from '../../services/Api';
 
 export default {
   name: 'form-result',
@@ -47,7 +50,34 @@ export default {
       return this.formState.isComplete;
     }
   },
-  methods: {}
+  data() {
+    return {
+      formFilled: this.$store.state.lead.formData
+    };
+  },
+  methods: {
+    async insert() {
+      try {
+        const result = await api.post(`/backup`, {
+          quem: this.formFilled.quem,
+          empresa: this.formFilled.empresa,
+          local: this.formFilled.localtrabalho,
+          data: this.formFilled.idaVolta,
+          funcionarios: this.formFilled.funcionarioNome,
+          horas: this.formFilled.horasTrabalho,
+          horasExtras: this.formFilled.horasExtras,
+          viagem: this.formFilled.viagem,
+          veiculos: this.formFilled.veiculos,
+          terceiros: this.formFilled.terceiros,
+          terceirosFunc: this.formFilled.funcaoTerc,
+          crea: this.formFilled.crea
+        });
+        return result;
+      } catch (error) {
+        return error;
+      }
+    }
+  }
 };
 </script>
 
