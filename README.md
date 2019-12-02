@@ -2,6 +2,11 @@
 
 ## Como testar localmente
 
+### Stack
+
+- VueJS
+- NODE + MSSQL (SQL Server)
+
 Configurar Frontend
 
 ```console

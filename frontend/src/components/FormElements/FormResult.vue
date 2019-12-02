@@ -4,7 +4,7 @@
       <h1>As informações estão corretas?</h1>
       <v-layout>
         <v-flex wrap text-center>
-          <router-link to="/teste">
+          <router-link to="/">
             <v-btn class="btn" @click="insert" outlined color="primary"
               >Estão</v-btn
             >
