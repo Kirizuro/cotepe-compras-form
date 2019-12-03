@@ -5,13 +5,8 @@
       <v-layout>
         <v-flex wrap text-center>
           <router-link to="/">
-            <v-btn class="btn" @click="insert" outlined color="primary"
-              >Estão</v-btn
-            >
+            <v-btn class="btn" @click="insert" color="primary">Estão</v-btn>
           </router-link>
-          <v-btn class="btn" @click="$emit('back')" outlined color="secondary">
-            Não estão
-          </v-btn>
         </v-flex>
       </v-layout>
       <v-row>

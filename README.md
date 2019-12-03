@@ -17,9 +17,9 @@ yarn serve
 
 #### Configurar Backend
 
-Ser?o necessarios 4 tabelas em SQL Server
+Serão necessarios 4 tabelas em SQL Server
 
-S?o elas:
+São elas:
 
 `dbo.backupForm`
 

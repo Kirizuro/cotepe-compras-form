@@ -9,8 +9,7 @@
         <thead>
           <tr class="tr-th">
             <th @click="sort('quem')">Quem Criou</th>
-            <th @click="sort('empresa')">Empresa</th>
-            <th @click="sort('local')">Local</th>
+            <th @click="sort('parceiro')">Parceiro</th>
             <th @click="sort('data')">Data</th>
             <th @click="sort('funcionarios')">Funcionarios</th>
             <th @click="sort('horas')">Horas</th>
@@ -26,8 +25,7 @@
         <tbody>
           <tr v-for="value in sortingResult" :key="value.id">
             <td>{{ value.quem }}</td>
-            <td>{{ value.empresa }}</td>
-            <td>{{ value.local }}</td>
+            <td>{{ value.parceiro }}</td>
             <td>{{ value.data }}</td>
             <td>{{ value.funcionarios }}</td>
             <td>{{ value.horas }}</td>
