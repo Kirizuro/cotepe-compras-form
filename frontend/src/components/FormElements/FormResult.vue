@@ -60,8 +60,7 @@ export default {
       try {
         const result = await api.post(`/backup`, {
           quem: this.formFilled.quem,
-          empresa: this.formFilled.empresa,
-          local: this.formFilled.localtrabalho,
+          parceiro: this.formFilled.parceiro,
           data: this.formFilled.idaVolta,
           funcionarios: this.formFilled.funcionarioNome,
           horas: this.formFilled.horasTrabalho,

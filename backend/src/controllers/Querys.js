@@ -25,6 +25,19 @@ const Querys = {
     } catch (err) {
       console.log(err);
     }
+  },
+
+  async parceiros(req, res) {
+    try {
+      await sql.connect('mssql://sa:141018@localhost/master');
+      const result = await sql.query(`select * from dbo.parceiros`);
+      return res.json({
+        result,
+        status: 200
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

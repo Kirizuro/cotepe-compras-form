@@ -18,8 +18,7 @@ const Backup = {
       const mainInsert = await sql.query(
         `INSERT INTO dbo.backupForm (
           quem,
-          empresa,
-          local,
+          parceiro,
           data,
           funcionarios,
           horas,
@@ -32,8 +31,7 @@ const Backup = {
         )
         values (
           '${body.quem}',
-          '${body.empresa}',
-          '${body.local}',
+          '${body.parceiro}',
           '${body.data}',
           '${body.funcionarios}',
           ${body.horas},
@@ -45,8 +43,8 @@ const Backup = {
           ${body.crea}
           )`
       );
-      console.log(mainInsert);
-      console.log(backup);
+      //console.log(mainInsert);
+      //console.log(backup);
       return res.json({
         body: body,
         status: 200
@@ -60,7 +58,9 @@ const Backup = {
     try {
       await sql.connect('mssql://sa:141018@localhost/master');
 
-      const result = await sql.query(`SELECT * FROM dbo.backupForm`);
+      const result = await sql.query(
+        `SELECT * FROM dbo.backupForm ORDER BY id ASC`
+      );
 
       return res.json({
         result,

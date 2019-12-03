@@ -1,16 +1,26 @@
 <template>
   <div>
-    <v-autocomplete
-      item-text="nome"
-      label="Escolha os funcionarios"
-      multiple
-      chips
-      deletable-chips
-      :items="result"
-      :value="result"
-      v-model="selectedValues"
-      v-checked:[result]="selectedValues"
-    ></v-autocomplete>
+    <div v-if="options === 'funcionarios'">
+      <v-autocomplete
+        item-text="nome"
+        multiple
+        chips
+        deletable-chips
+        :items="result"
+        :value="result"
+        v-model="selectedValues"
+        v-checked:[result]="selectedValues"
+      ></v-autocomplete>
+    </div>
+    <div v-else>
+      <v-autocomplete
+        item-text="nome"
+        :items="result"
+        :value="result"
+        v-model="selectedValues"
+        v-checked:[result]="selectedValues"
+      ></v-autocomplete>
+    </div>
   </div>
 </template>
 
@@ -24,11 +34,6 @@ export default {
     value: {
       required: false,
       default: () => []
-    },
-    para: {
-      type: String,
-      default: 'funcionarios',
-      required: false
     }
   },
   watch: {
@@ -64,7 +69,7 @@ export default {
     }
   },
   beforeMount() {
-    this.getApi(this.para);
+    this.getApi(this.options);
   }
 };
 </script>

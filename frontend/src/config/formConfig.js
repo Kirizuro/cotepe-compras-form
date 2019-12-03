@@ -9,24 +9,11 @@ const formConfig = [
     validation: 'required'
   },
   {
-    type: 'text',
-    label: 'Nome da Empresa',
-    name: 'empresa',
+    type: 'select',
+    label: 'Numero do Parceiro',
+    name: 'parceiro',
     options: {
-      attrs: {
-        placeholder: 'Nome da Empresa'
-      }
-    },
-    validation: 'required'
-  },
-  {
-    type: 'text',
-    label: 'Onde sera realizado o serviço?',
-    name: 'localtrabalho',
-    options: {
-      attrs: {
-        placeholder: 'Onde sera realizado o serviço?'
-      }
+      choices: 'parceiros'
     },
     validation: 'required'
   },
@@ -46,7 +33,7 @@ const formConfig = [
     label: 'Selecione os profissionais',
     name: 'funcionarioNome',
     options: {
-      choices: ''
+      choices: 'funcionarios'
     },
     validation: 'required'
   },
