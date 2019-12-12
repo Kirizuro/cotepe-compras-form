@@ -1,8 +1,11 @@
 const express = require('express');
 const sql = require('mssql');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
-const routes = require('./Routes');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const config = {
   user: 'sa',
@@ -11,6 +14,11 @@ const config = {
   server: 'localhost\\SQLEXPRESS',
   Trusted_connection: true
 };
+
+const routes = require('./Routes');
+
+routes.use(bodyParser.urlencoded({ extended: false }));
+routes.use(bodyParser.json());
 
 const app = express();
 

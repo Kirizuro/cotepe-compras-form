@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-row justify="center">
+      <!--
       <v-dialog v-model="dialog" persistent max-width="900px">
         <v-card>
           <v-card-title>
@@ -14,16 +15,16 @@
                 <v-col cols="12">
                   <v-text-field
                     label="Usuario"
-                    hint="Mesmas credenciais da intranet"
                     persistent-hint
+                    v-model="user"
                     required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
                     label="Senha"
-                    hint="Mesmas credenciais da intranet"
                     persistent-hint
+                    v-model="password"
                     required
                   ></v-text-field>
                 </v-col>
@@ -32,12 +33,15 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="black" text @click="(dialog = false), login"
+            <v-btn
+              color="black"
+              text
+              @click="dialog = false /*Login(user, password)*/"
               >Iniciar</v-btn
             >
           </v-card-actions>
         </v-card>
-      </v-dialog>
+      </v-dialog>-->
     </v-row>
     <Home />
   </div>
@@ -57,7 +61,9 @@ export default {
 
   data() {
     return {
-      dialog: true
+      dialog: true,
+      user: '',
+      password: ''
     };
   },
 
@@ -65,26 +71,39 @@ export default {
     ...mapGetters(['jwt', 'jwtData', 'jwtSubject', 'jwtIssuer'])
   },
 
-  actions: {},
-
   methods: {
     ...mapActions([`fetchJwt`]),
 
     async logIn() {
       const result = await api.post(`/login`, {
-        headers: new Headers({
-          authorization: `Bearer: ${this.jwt}`
-        })
+        data: {
+          user: this.user,
+          password: this.password
+        }
       });
+      this.dialog = false;
       return result;
+    },
+
+    async Login(user, password) {
+      try {
+        await api.post(`/login`, {
+          user: user,
+          password: password
+        });
+      } catch (error) {
+        throw error;
+      }
     }
   },
 
   mounted() {
+    /*
     this.fetchJwt({
-      user: 'user',
-      password: 'password'
+      user: this.user,
+      password: this.password
     });
+    */
   }
 };
 </script>
