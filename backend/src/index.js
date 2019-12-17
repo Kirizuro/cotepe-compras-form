@@ -1,17 +1,8 @@
 const express = require('express');
-const sql = require('mssql');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const dotenv = require('dotenv/config');
-
-const config = {
-  user: process.env.MSSQLCON_USER,
-  password: process.env.MSSQLCON_PASSWORD,
-  database: process.env.MSSQLCON_DATABASE,
-  server: process.env.MSSQLCON_SERVER,
-  Trusted_connection: true
-};
 
 const routes = require('./Routes');
 

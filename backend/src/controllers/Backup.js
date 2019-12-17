@@ -1,4 +1,5 @@
 const sql = require('mssql');
+const connection = require('../services/Connect');
 
 const Backup = {
   async inserir(req, res) {
@@ -50,7 +51,7 @@ const Backup = {
         status: 200
       });
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   },
 
@@ -67,7 +68,7 @@ const Backup = {
         status: 200
       });
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 };

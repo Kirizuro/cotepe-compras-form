@@ -1,35 +1,38 @@
 const sql = require('mssql');
+const connection = require('../services/Connect');
 
 const Querys = {
   async vendas(req, res) {
     try {
-      await sql.connect('mssql://sa:141018@localhost/master');
-      const result = await sql.query(`select * from dbo.vendas`);
+      await sql.connect(connection);
+      const result = await sql.query(
+        `select * from dbo.acompanhamento_App_Nome_Vendedores`
+      );
       return res.json({
         result,
         status: 200
       });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      throw error;
     }
   },
 
   async funcionarios(req, res) {
     try {
-      await sql.connect('mssql://sa:141018@localhost/master');
+      await sql.connect(connection);
       const result = await sql.query(`select * from dbo.funcionarios`);
       return res.json({
         result,
         status: 200
       });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      throw error;
     }
   },
 
   async parceiros(req, res) {
     try {
-      await sql.connect('mssql://claudio:Io985641cl@@SRVSAP/COTEPE_Producao');
+      await sql.connect(connection);
       //await sql.connect('mssql://sa:141018@localhost/master');
       //const result = await sql.query(`select * from dbo.parceiros`);
       const result = await sql.query(
@@ -45,7 +48,7 @@ const Querys = {
         status: 200
       });
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 };
