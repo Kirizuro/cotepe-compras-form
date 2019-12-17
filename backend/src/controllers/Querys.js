@@ -14,6 +14,15 @@ const Querys = {
       });
     } catch (error) {
       throw error;
+=======
+<<<<<<< HEAD
+    } catch (error) {
+      throw error;
+=======
+    } catch (err) {
+      throw err;
+>>>>>>> 05df81d676ba986e8219d23602e318b2f0f99e86
+>>>>>>> b2d0dc45f49dc52dd8d36d0222e50c77704198a9
     }
   },
 
@@ -25,8 +34,18 @@ const Querys = {
         result,
         status: 200
       });
+<<<<<<< HEAD
     } catch (error) {
       throw error;
+=======
+<<<<<<< HEAD
+    } catch (error) {
+      throw error;
+=======
+    } catch (err) {
+      throw err;
+>>>>>>> 05df81d676ba986e8219d23602e318b2f0f99e86
+>>>>>>> b2d0dc45f49dc52dd8d36d0222e50c77704198a9
     }
   },
 
@@ -48,7 +67,15 @@ const Querys = {
         status: 200
       });
     } catch (error) {
+<<<<<<< HEAD
       throw error;
+=======
+<<<<<<< HEAD
+      throw error;
+=======
+      throw err;
+>>>>>>> 05df81d676ba986e8219d23602e318b2f0f99e86
+>>>>>>> b2d0dc45f49dc52dd8d36d0222e50c77704198a9
     }
   }
 };
