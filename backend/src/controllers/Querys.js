@@ -12,8 +12,13 @@ const Querys = {
         result,
         status: 200
       });
+<<<<<<< HEAD
     } catch (error) {
       throw error;
+=======
+    } catch (err) {
+      throw err;
+>>>>>>> 05df81d676ba986e8219d23602e318b2f0f99e86
     }
   },
 
@@ -25,8 +30,13 @@ const Querys = {
         result,
         status: 200
       });
+<<<<<<< HEAD
     } catch (error) {
       throw error;
+=======
+    } catch (err) {
+      throw err;
+>>>>>>> 05df81d676ba986e8219d23602e318b2f0f99e86
     }
   },
 
@@ -48,7 +58,11 @@ const Querys = {
         status: 200
       });
     } catch (error) {
+<<<<<<< HEAD
       throw error;
+=======
+      throw err;
+>>>>>>> 05df81d676ba986e8219d23602e318b2f0f99e86
     }
   }
 };
