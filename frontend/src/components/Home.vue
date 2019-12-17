@@ -51,7 +51,6 @@
 import Home from '../views/Home';
 
 import { api } from '../services/Api';
-import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'home',
@@ -67,13 +66,9 @@ export default {
     };
   },
 
-  computed: {
-    ...mapGetters(['jwt', 'jwtData', 'jwtSubject', 'jwtIssuer'])
-  },
+  computed: {},
 
   methods: {
-    ...mapActions([`fetchJwt`]),
-
     async logIn() {
       const result = await api.post(`/login`, {
         data: {
@@ -95,15 +90,6 @@ export default {
         throw error;
       }
     }
-  },
-
-  mounted() {
-    /*
-    this.fetchJwt({
-      user: this.user,
-      password: this.password
-    });
-    */
   }
 };
 </script>

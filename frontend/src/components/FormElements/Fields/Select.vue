@@ -14,7 +14,7 @@
     </div>
     <div v-else>
       <v-autocomplete
-        item-text="nome"
+        item-text="Nome"
         :items="result"
         :value="result"
         v-model="selectedValues"
@@ -55,7 +55,8 @@ export default {
   data() {
     return {
       selectedValues: [],
-      result: []
+      result: [],
+      regist: []
     };
   },
   methods: {

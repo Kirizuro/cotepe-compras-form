@@ -2,13 +2,13 @@
   <type-based-transition :transitionType="'fadeUpDown'">
     <div v-if="isComplete" id="complete" class="form-complete">
       <h1>As informações estão corretas?</h1>
-      <v-layout>
-        <v-flex wrap text-center>
-          <router-link to="/">
-            <v-btn class="btn" @click="insert" color="primary">Estão</v-btn>
-          </router-link>
-        </v-flex>
-      </v-layout>
+      <v-row class="text-center">
+        <v-col wrap text-center>
+          <v-btn class="btn" to="/" @click="insert" color="primary"
+            >Estão</v-btn
+          >
+        </v-col>
+      </v-row>
       <v-row>
         <v-col
           xs="12"
@@ -68,7 +68,7 @@ export default {
         });
         return result;
       } catch (error) {
-        return error;
+        throw error;
       }
     }
   }

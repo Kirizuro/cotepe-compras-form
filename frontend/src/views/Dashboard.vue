@@ -1,10 +1,19 @@
 <template>
-  <div>
+  <v-container fluid>
     <v-card>
-      <router-link to="/">
-        <v-card-title>Relatorio das entradas</v-card-title>
-      </router-link>
+      <v-row class="text-right">
+        <v-col>
+          <router-link to="/">
+            <v-card-title>Relatorio das entradas</v-card-title>
+          </router-link>
+          <v-spacer></v-spacer>
 
+          <v-btn class="btn" color="secondary" @click="prevPage"
+            >Anterior</v-btn
+          >
+          <v-btn class="btn" color="primary" @click="nextPage">Próximo</v-btn>
+        </v-col>
+      </v-row>
       <table class="table">
         <thead>
           <tr class="tr-th">
@@ -40,11 +49,7 @@
         </tbody>
       </table>
     </v-card>
-    <v-flex text-center>
-      <v-btn class="btn" color="secondary" @click="prevPage">Anterior</v-btn>
-      <v-btn class="btn" color="primary" @click="nextPage">Próximo</v-btn>
-    </v-flex>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -144,10 +149,6 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
   background-color: #517cda;
-}
-
-.btn {
-  margin: 30px 10px 0 auto;
 }
 
 a {

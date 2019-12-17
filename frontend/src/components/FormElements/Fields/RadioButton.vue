@@ -15,11 +15,11 @@
       <label v-for="(options, key) in result" :key="key">
         <input
           type="radio"
-          :value="options.nome"
+          :value="options.SlpName"
           @input="$emit('input', $event.target.value)"
           :checked="options === value"
         />
-        {{ options.nome }}
+        {{ options.SlpName }}
       </label>
     </div>
   </div>
