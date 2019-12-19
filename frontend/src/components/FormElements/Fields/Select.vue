@@ -14,7 +14,7 @@
     </div>
     <div v-else>
       <v-autocomplete
-        item-text="Nome"
+        item-text="CardName"
         :items="result"
         :value="result"
         v-model="selectedValues"
