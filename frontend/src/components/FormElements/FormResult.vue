@@ -1,14 +1,43 @@
 <template>
   <type-based-transition :transitionType="'fadeUpDown'">
     <div v-if="isComplete" id="complete" class="form-complete">
-      <h1>As informações estão corretas?</h1>
+      <h1>
+        Antes de continuar registre essa proposta dentro do SAP, e use o novo
+        número da PV a seguir:
+      </h1>
       <v-row class="text-center">
         <v-col wrap text-center>
-          <v-btn class="btn" to="/" @click="insert" color="primary"
-            >Estão</v-btn
+          <v-btn class="btn" to="/" @click="dialog = true" color="primary"
+            >Confirmar</v-btn
           >
         </v-col>
       </v-row>
+      <v-dialog v-model="dialog" persistent max-width="900px">
+        <v-card>
+          <v-card-title>
+            <span class="headline">Insira o número da PV</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                    label="Proposta de Venda"
+                    persistent-hint
+                    v-model="pv"
+                    type="number"
+                    required
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="black" text @click="insert">Confirmar</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
       <v-row>
         <v-col
           xs="12"
@@ -47,7 +76,9 @@ export default {
   },
   data() {
     return {
-      formFilled: this.$store.state.lead.formData
+      formFilled: this.$store.state.lead.formData,
+      dialog: false,
+      pv: ''
     };
   },
   methods: {
@@ -64,7 +95,8 @@ export default {
           veiculos: this.formFilled.veiculos,
           terceiros: this.formFilled.terceiros,
           terceirosFunc: this.formFilled.funcaoTerc,
-          crea: this.formFilled.crea
+          crea: this.formFilled.crea,
+          pv: this.pv
         });
         return result;
       } catch (error) {

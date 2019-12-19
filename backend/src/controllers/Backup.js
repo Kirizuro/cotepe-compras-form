@@ -6,7 +6,12 @@ const Backup = {
     try {
       const body = await req.body;
 
+      const pv = parseInt(body.pv);
+
       await sql.connect('mssql://sa:141018@localhost/master');
+
+      const pvExist = await sql.query(`SELECT pv FROM dbo.pvs`);
+
       /*
       const backup = await sql.query(
         `INSERT INTO dbo.teste (
@@ -14,8 +19,16 @@ const Backup = {
         )
         values (
 
-        )`
-      );*/
+          )`
+        );*/
+      if (pv === pvExist.recordset.length) {
+        console.log('pv existe, portanto ele criou dentro do sap');
+      } else {
+        console.log('pv nao existe, portanto ele nao criou');
+      }
+      console.log(pv);
+      console.log(pvExist.recordset.length);
+      /*
       const mainInsert = await sql.query(
         `INSERT INTO dbo.backupForm (
           quem,
@@ -44,6 +57,7 @@ const Backup = {
           ${body.crea}
           )`
       );
+      */
       //console.log(mainInsert);
       //console.log(backup);
       return res.json({
@@ -65,6 +79,23 @@ const Backup = {
 
       return res.json({
         result,
+        status: 200
+      });
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  async pv(req, res) {
+    try {
+      await sql.connect(connection);
+
+      const pvExist = await sql.query(
+        `SELECT Projeto FROM dbo.[Acompanhanento_Lista_de_PV's] order by Projeto desc`
+      );
+
+      return res.json({
+        message: pvExist,
         status: 200
       });
     } catch (error) {

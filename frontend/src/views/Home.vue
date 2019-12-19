@@ -4,7 +4,7 @@
       <p>Inicio do cadastramento da PV</p>
       <p>
         Número Provisório dessa PV:
-        <span>{{ `${date}/${Math.floor(Math.random() * 1000)}` }} </span>
+        <span>{{ pv.data.message.recordset.length }} </span>
       </p>
       <img src="../assets/img/logo cotepe.svg" alt="" />
     </nav>
@@ -19,6 +19,7 @@
 
 <script>
 import FormConfigProvider from '../components/FormConfigProvider';
+import { api } from '../services/Api';
 
 export default {
   name: 'home',
@@ -27,14 +28,27 @@ export default {
   },
   data() {
     return {
-      date: new Date().getFullYear()
+      date: new Date().getFullYear(),
+      pv: ''
       //show: false
     };
   },
   methods: {
+    async pvGet() {
+      try {
+        const result = await api.get('/pv');
+
+        this.pv = result;
+      } catch (error) {
+        throw error;
+      }
+    }
     //adminShow() {
     //this.show = true;
     //}
+  },
+  beforeMount() {
+    this.pvGet();
   }
 };
 </script>

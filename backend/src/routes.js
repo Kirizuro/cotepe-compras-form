@@ -11,5 +11,6 @@ routes.get('/parceiros', Querys.parceiros);
 
 routes.get('/backupShow', Backup.mostrar);
 routes.post('/backup', Backup.inserir);
+routes.get('/pv', Backup.pv);
 
 module.exports = routes;

@@ -2,7 +2,7 @@
   <div>
     <div v-if="options === 'funcionarios'">
       <v-autocomplete
-        item-text="nome"
+        item-text="Nome"
         multiple
         chips
         deletable-chips
